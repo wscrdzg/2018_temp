@@ -6,17 +6,17 @@ loc = as.character(readline(prompt = "Enter file loc: "))
 num_of_row = as.numeric(readline(prompt = "Enter number of rows: "))
 
 # import files
-basic <- read.csv(paste0(loc,"基本信息qyxg_jqka_ipo_basic_20180320"), nrows = num_of_row, header = F)
+basic <- read.csv(paste0(loc,"基本信息qyxg_jqka_ipo_basic_20180320"), nrows = num_of_row, header = F, stringsAsFactors = F)
 print("basic imported successful")
-gdxx <- read.csv(paste0(loc,"股东信息qyxg_jqka_ipo_gdxx_20180320"), nrows = num_of_row, header = F)
+gdxx <- read.csv(paste0(loc,"股东信息qyxg_jqka_ipo_gdxx_20180320"), nrows = num_of_row, header = F, stringsAsFactors = F)
 print("gdxx imported successful")
-income <- read.csv(paste0(loc,"财务指标利润表qyxg_jqka_cwzb_zhsy_20180320"), nrows = num_of_row, header = F)
+income <- read.csv(paste0(loc,"财务指标利润表qyxg_jqka_cwzb_zhsy_20180320"), nrows = num_of_row, header = F, stringsAsFactors = F)
 print("income imported successful")
-cash <- read.csv(paste0(loc,"财务指标现金流量qyxg_jqka_cwzb_xjll_20180320"), nrows = num_of_row, header = F)
+cash <- read.csv(paste0(loc,"财务指标现金流量qyxg_jqka_cwzb_xjll_20180320"), nrows = num_of_row, header = F, stringsAsFactors = F)
 print("cash imported successful")
-bs <- read.csv(paste0(loc,"财务指标资产负债qyxg_jqka_cwzb_zcfz_20180320"), nrows = num_of_row, header = F)
+bs <- read.csv(paste0(loc,"财务指标资产负债qyxg_jqka_cwzb_zcfz_20180320"), nrows = num_of_row, header = F, stringsAsFactors = F)
 print("bs imported successful")
-invest <- read.csv(paste0(loc,"投资信息.csv"), nrows = num_of_row, header = T)
+invest <- read.csv(paste0(loc,"投资信息.csv"), nrows = num_of_row, header = T, stringsAsFactors = F)
 print("invest imported successful")
   
 # import column names
