@@ -51,4 +51,4 @@ for (i in 1:length(co_gov[,1])) {
   }
 }
 
-write.xlsx(co_gov, "20180417results.xlsx")
+write.xlsx(co_gov, "results.xlsx")
