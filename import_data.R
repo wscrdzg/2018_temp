@@ -1,6 +1,6 @@
 source("https://raw.githubusercontent.com/wscrdzg/r_toolbox/master/createxlsx.R") # include openxlsx
 
-print('you may want this for loc: ../新三板公司工商数据/, do not include ""')
+cat('you may want this for loc: ../新三板公司工商数据/, do not include ""')
 
 loc = as.character(readline(prompt = "Enter file loc: "))
 num_of_row = as.numeric(readline(prompt = "Enter number of rows: "))
