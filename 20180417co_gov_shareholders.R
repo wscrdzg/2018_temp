@@ -8,6 +8,7 @@ income01$report_date <- ymd(income01$report_date)
 
 #match(c("company_name","stock_code", "shareholder_name", "report_date","invest_ratio"), names(gdxx))
 gd01 <- gdxx[,c(11,4,5,9,10)]
+gd01$report_date <- ymd(gd01$report_date)
 
 # match(c("company_name","stock_code","report_date","total_shareholders_equity"), names(bs))
 bs01 <- bs[,c(35, 56, 12, 19)]
@@ -51,4 +52,4 @@ for (i in 1:length(co_gov[,1])) {
   }
 }
 
-write.xlsx(co_gov, "results.xlsx")
+write.xlsx(co_gov, "sh_results.xlsx")
