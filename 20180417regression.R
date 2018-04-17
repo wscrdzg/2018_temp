@@ -45,6 +45,10 @@ for (i in 1:length(co_gov[,1])) {
         co_gov[i,5] <- sub2[sh_rank[1],5] # sh 01 ratio
       }
     }
+  if (i %% 50 == 0) {
+    cat(i)
+    cat("done\n")
+  }
 }
 
 write.xlsx(co_gov, "2018.0417results.xlsx")
