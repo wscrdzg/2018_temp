@@ -52,4 +52,23 @@ for (i in 1:length(co_gov[,1])) {
   }
 }
 
-write.xlsx(co_gov, "sh_results.xlsx")
+for (i in 1:length(co_gov[,1])) {
+  co1 <- subset(income01, stock_code == co_gov[i,2])
+  co2 <- subset(bs01, stock_code == co_gov[i,2])
+  
+  
+  time1 <- co1[which(year(co1[,3]) == the_year),3] # filter time to 2016
+  l1 <- time1[order(time1, decreasing = T)][1] # order the time, choose the later one
+  
+  time2 <- co2[which(year(co2[,3]) == the_year),3] # filter time to 2016
+  l2 <- time2[order(time2, decreasing = T)][1]
+  
+  if(length(time1) == 0 | length(time2) == 0) {next(paste0(i," skiped"))}
+  co_gov[i,14] <- co1[which(co1[,3] == l1),4]
+  co_gov[i,15] <- co2[which(co2[,3] == l2),4]
+  
+  cat(i)
+  cat(" done\n")
+}
+
+write.xlsx(co_gov, "co_gov_results.xlsx")
