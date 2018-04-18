@@ -25,18 +25,19 @@ for (i in 1:length(co_gov[,1])) {
   co1 <- subset(income01, stock_code == co_gov[i,2])
   co2 <- subset(bs01, stock_code == co_gov[i,2])
   
-  time <- co1[which(year(co1[,3]) == the_year),3] # filter time to 2016
-  l <- time[order(time, decreasing = T)][1] # order the time, choose the later one
-  co_gov[i,14] <- co1[which(co1[,3] == l),4]
   
-  time <- co2[which(year(co2[,3]) == the_year),3] # filter time to 2016
-  l <- time[order(time, decreasing = T)][1]
-  co_gov[i,15] <- co2[which(co2[,3] == l),4]
+  time1 <- co1[which(year(co1[,3]) == the_year),3] # filter time to 2016
+  l1 <- time[order(time1, decreasing = T)][1] # order the time, choose the later one
   
-  if(i %% 50 == 0) {
-    cat(i)
-    cat(" done")
-  }
+  time2 <- co2[which(year(co2[,3]) == the_year),3] # filter time to 2016
+  l2 <- time[order(time2, decreasing = T)][1]
+  
+  if(length(time1) == 0 | length(time2) == 0) {next(paste0(i," skiped"))}
+  co_gov[i,14] <- co1[which(co1[,3] == l1),4]
+  co_gov[i,15] <- co2[which(co2[,3] == l2),4]
+  
+  cat(i)
+  cat(" done\n")
 }
 
 write.xlsx(co_gov, "co_gov_results.xlsx")
