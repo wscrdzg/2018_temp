@@ -32,4 +32,11 @@ for (i in 1:length(co_gov[,1])) {
   time <- co2[which(year(co2[,3]) == the_year),3] # filter time to 2016
   l <- time[order(time, decreasing = T)][1]
   co_gov[i,15] <- co2[which(co2[,3] == l),4]
+  
+  if(i %% 50 == 0) {
+    cat(i)
+    cat(" done")
+  }
 }
+
+write.xlsx(co_gov, "co_gov_results.xlsx")
