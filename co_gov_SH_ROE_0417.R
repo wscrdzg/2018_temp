@@ -19,6 +19,9 @@ co_gov <- income01[which(duplicated(income01[,1]) == 0),1:2]
 
 the_year <- 2016
 
+# ========================== part 0 ==================================
+# add 2016 shareholders data (ranking 1-5 in terms of percentage)
+
 for (i in 1:length(co_gov[,1])) {
   co <- subset(gd01, stock_code == co_gov[i,2])
   year_range <- as.numeric(levels(factor(year(co$report_date)))) # range of years for company_i
@@ -51,6 +54,9 @@ for (i in 1:length(co_gov[,1])) {
     cat("done\n")
   }
 }
+
+# ========================== part 1 ==================================
+# add 2016 financial data
 
 for (i in 1:length(co_gov[,1])) {
   co1 <- subset(income01, stock_code == co_gov[i,2])
